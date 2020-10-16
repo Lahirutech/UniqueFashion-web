@@ -1,9 +1,10 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
+import RegisterAdmin from "./components/auth/RegisterAdmin";
+
 import Login from "./components/auth/Login";
 import { Provider } from "react-redux";
 import store from "./store";
@@ -36,9 +37,9 @@ function App() {
     <Provider store={store}>
       <div className="App">
         <Router>
-          <Navbar />
           <Route exact path="/" component={Landing} />
           <Route exact path="/register" component={Register} />
+          <Route exact path="/register-admin" component={RegisterAdmin} />
           <Route exact path="/login" component={Login} />
           <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
