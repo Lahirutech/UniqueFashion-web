@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
+import AdminNav from "../layout/NavbarAdmin";
+import UserNav from "../layout/NavbarUser";
 
 import { logoutUser } from "../../actions/authActions";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,13 +14,17 @@ function Dashboard() {
     dispatch(logoutUser());
   };
   const { user } = auth;
-  console.log(user)
-  return (
+  console.log(user);
+  return ( <div>
+     <div>{user.role == "admin" ? <AdminNav /> : <UserNav />}</div>
     <div style={{ height: "75vh" }} className="container valign-wrapper">
+      
       <div className="row">
+       
         <div className="col s12 center-align">
           <h4>
-            <b>Hey there,</b> {user.name.split(" ")[0]}
+            <b>Hey there,</b> {user.name.split(" ")[0]} <br />
+            The user Role is <b>{user.role}</b>
             <p className="flow-text grey-text text-darken-1">
               You are logged into a full-stack{" "}
               <span style={{ fontFamily: "monospace" }}>MERN lanka</span> app 👏
@@ -39,6 +44,7 @@ function Dashboard() {
           </button>
         </div>
       </div>
+    </div>
     </div>
   );
 }
