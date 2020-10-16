@@ -26,7 +26,7 @@ function Login(props) {
     if (auth.isAuthenticated) {
       props.history.push("/dashboard");
     } else {
-      console.log("Auth not connected");
+      console.log("User not logged in");
     }
   }, [auth.isAuthenticated]);
 
@@ -39,6 +39,7 @@ function Login(props) {
     console.log(userData);
     dispatch(loginUser(userData));
   };
+  
   return (
     <div className="container">
       <div style={{ marginTop: "4rem" }} className="row">
