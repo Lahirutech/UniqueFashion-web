@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-function Navbar() {
+function NavbarAdmin() {
   return (
     <div className="navbar-fixed">
       <nav className="z-depth-0">
@@ -14,11 +14,11 @@ function Navbar() {
             className="col s5 brand-logo center black-text"
           >
             <i className="material-icons">code</i>
-            MERN
+            Admin Nav
           </Link>
         </div>
       </nav>
     </div>
   );
 }
-export default Navbar;
+export default NavbarAdmin;
