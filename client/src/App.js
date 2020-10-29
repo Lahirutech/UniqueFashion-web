@@ -14,6 +14,10 @@ import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 
+// Product related Components
+import AddProduct from "./components/products/AddProduct";
+import ViewMyProducts from "./components/products/ViewMyProducts";
+
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -41,9 +45,14 @@ function App() {
           <Route exact path="/register" component={Register} />
           <Route exact path="/register-admin" component={RegisterAdmin} />
           <Route exact path="/login" component={Login} />
+          {/* <Route exact path="/viewmyproducts" componen={ViewMyProducts} /> */}
+
           <Switch>
-              <PrivateRoute exact path="/dashboard" component={Dashboard} />
-            </Switch>
+            <PrivateRoute exact path="/dashboard" component={Dashboard} />
+
+            <PrivateRoute exact path="/addProduct" component={AddProduct} />
+            <PrivateRoute exact path="/viewmyproducts" component={ViewMyProducts}/>
+          </Switch>
         </Router>
       </div>
     </Provider>
