@@ -17,7 +17,7 @@ import PrivateRoute from "./components/private-route/PrivateRoute";
 // Product related Components
 import AddProduct from "./components/products/AddProduct";
 import ViewMyProducts from "./components/products/ViewMyProducts";
-
+import EditProduct from "./components/products/EditProduct";
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -51,7 +51,16 @@ function App() {
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
 
             <PrivateRoute exact path="/addProduct" component={AddProduct} />
-            <PrivateRoute exact path="/viewmyproducts" component={ViewMyProducts}/>
+            <PrivateRoute
+              exact
+              path="/viewmyproducts"
+              component={ViewMyProducts}
+            />
+            <PrivateRoute
+              exact
+              path="/editProduct/:productId"
+              component={EditProduct}
+            />
           </Switch>
         </Router>
       </div>
